@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vulnerable App</title>
+</head>
+<body>
+  <h1>Welcome to VulnApp</h1>
+  <form method="POST" action="/login">
+    <input name="username" placeholder="Username" />
+    <input name="password" type="password" placeholder="Password" />
+    <button type="submit">Login</button>
+  </form>
+  <br>
+  <form method="GET" action="/search">
+    <input name="q" placeholder="Search term" />
+    <button type="submit">Search</button>
+  </form>
+</body>
+</html>
