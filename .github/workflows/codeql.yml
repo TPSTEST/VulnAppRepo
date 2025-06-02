@@ -17,9 +17,9 @@ jobs:
       contents: read
       security-events: write
 
-    strategy:
-      matrix:
-        language: [cpp, csharp, javascript, python, go, java]
+    # strategy:
+    #   matrix:
+    #     language: [cpp, csharp, javascript, python, go, java]
 
     steps:
     - name: Checkout repository
