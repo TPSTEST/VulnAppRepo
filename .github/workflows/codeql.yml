@@ -32,6 +32,7 @@ jobs:
     
     - name: Build (C++)
       run: |
+        ls -la
         mkdir -p build
         g++ -g main.cpp utils.cpp -o build/vulnapp
     # - name: Autobuild
