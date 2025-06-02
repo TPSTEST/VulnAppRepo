@@ -19,10 +19,10 @@ jobs:
 
     strategy:
       matrix:
-        language: [javascript]
+        language: [cpp, csharp, javascript, python, go, java]
 
     steps:
-    - name: Checkout repository by user
+    - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Initialize CodeQL
