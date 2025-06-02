@@ -1,26 +1,24 @@
-
 #include <iostream>
 #include <cstring>
-#include <cstdlib>
+#include "utils.h"
 
-void vulnerableFunction(char *input) {
-    char buffer[50];
-    strcpy(buffer, input); // buffer overflow
-    std::cout << "You entered: " << buffer << std::endl;
-}
-
-void runCommand(char *userCommand) {
+int main() {
+    char name[20];
     char command[100];
-    sprintf(command, "ls %s", userCommand); // command injection
-    system(command);
-}
 
-int main(int argc, char *argv[]) {
-    if (argc > 1) {
-        vulnerableFunction(argv[1]);
-        runCommand(argv[1]);
-    } else {
-        std::cout << "Please provide input." << std::endl;
-    }
+    std::cout << "Enter your name: ";
+    std::cin >> name;
+
+    // Buffer overflow if input > 20 characters
+    greetUser(name);
+
+    std::cout << "Enter a file to list: ";
+    std::cin >> command;
+
+    // Command injection vulnerability
+    char cmd[150];
+    snprintf(cmd, sizeof(cmd), "ls -l %s", command);
+    system(cmd);
+
     return 0;
 }
