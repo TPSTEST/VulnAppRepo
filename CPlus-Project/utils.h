@@ -4,5 +4,5 @@
 
 char* getSecretKey();
 void printKey();
-
+void greetUser(const char* name);
 #endif
