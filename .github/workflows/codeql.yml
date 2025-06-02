@@ -29,7 +29,11 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: cpp
-
+    
+    - name: Build (C++)
+      run: |
+        mkdir -p build
+        g++ -g main.cpp utils.cpp -o build/vulnapp
     # - name: Autobuild
     #   uses: github/codeql-action/autobuild@v3
 
