@@ -17,9 +17,9 @@ jobs:
       contents: read
       security-events: write
 
-    # strategy:
-    #   matrix:
-    #     language: [cpp, csharp, javascript, python, go, java]
+    strategy:
+      matrix:
+        language: [javascript]
 
     steps:
     - name: Checkout repository
@@ -28,16 +28,10 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: cpp
-    
-    - name: Build (C++)
-      run: |
-        ls -la
-        mkdir -p build
-        
-        g++ -g CPlus-Project/main.cpp CPlus-Project/utils.cpp -o build/vulnapp
-    # - name: Autobuild
-    #   uses: github/codeql-action/autobuild@v3
+        languages: ${{ matrix.language }}
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v3
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
